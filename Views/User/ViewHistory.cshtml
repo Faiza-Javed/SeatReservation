@@ -1,0 +1,83 @@
+﻿@model List<EAD_Project.Models.Reserve>
+
+@{
+    ViewBag.Title = "EditSchedule";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<script>alert(@ViewBag.name)</script>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <br>
+        <br>
+        <h1>
+            History
+            <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Dashboard</li>
+            <li>Reservation</li>
+            <li class="active">History</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+
+
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        History
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Departure</th>
+                                        <th>Arrival</th>
+                                        <th>Date</th>
+                                        <th>Departure Time</th>
+                                        <th>Reserved Seats</th>
+                                        <th>Transactionum</th>
+                                        <th>Seat No</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var s in Model)
+                                    {
+                                        <tr class="record">
+                                            <td>@s.Id</td>
+                                            <td>@s.Departure</td>
+                                            <td>@s.Arrival</td>
+                                            <td>@s.Date1</td>
+                                            <td>@s.Time1</td>
+                                            <td>@s.Seat_Reserve</td>
+                                            <td>@s.Transactionum</td>
+                                            <td>@s.Seat</td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+    </section>
+</div>
+      </aside><!-- /.control-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+     immediately after the control sidebar -->
+<div class="control-sidebar-bg"></div>
+    </div><!-- ./wrapper -->

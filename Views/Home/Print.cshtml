@@ -1,0 +1,56 @@
+﻿@model EAD_Project.Models.UserAdminReservationModel
+@{
+    ViewBag.Title = "Print";
+}
+
+<script language="javascript">
+    function Clickheretoprint() {
+        var disp_setting = "toolbar=yes,location=no,directories=yes,menubar=yes,";
+        disp_setting += "scrollbars=yes,width=400, height=400, left=100, top=25";
+        var content_vlue = document.getElementById("print_content").innerHTML;
+
+        var docprint = window.open("", "", disp_setting);
+        docprint.document.open();
+        docprint.document.write('<html><head><title>Inel Power System</title>');
+        docprint.document.write('</head><body onLoad="self.print()" style="width: 400px; font-size:12px; font-family:arial;">');
+        docprint.document.write(content_vlue);
+        docprint.document.write('</body></html>');
+        docprint.document.close();
+        docprint.focus();
+    }
+</script>
+
+<div class="container">
+    <div class="rows">
+        <br><br><br><br><br>
+        <div class="col-sm-6">
+
+            Print and present this details upon boarding the bus<br><br>
+
+            <a href="javascript:Clickheretoprint()" style="background: #0094ff;">Print</a><br><br>
+            <div id="print_content" style="width: 400px;">
+                <strong>Seat Reservation Details</strong><br><br>
+
+                
+                Transaction Number:@Model.customer.Transactionum<br>
+                Name: @Model.customer.Fname <br>
+                CNIC: @Model.customer.Lname <br>
+                Email: @Model.customer.Email <br />
+                Mobile: @Model.customer.Mobile <br>
+                Address: @Model.customer.Address <br>
+                Payable: @Model.customer.Payable <br>
+                Departure: @Request["Departure"] <br>
+                Arrival: @Request["Arrival"] <br>
+                Date of Departure: @Request["Date2"] <br>
+                Time of Departure: @Request["Departure_Time"] <br>
+                Time of Arrival: @Request["Arrival_Time"] <br>
+                Seat Number: @Request["seats"] <br>
+                
+
+            </div>
+            <br><br><br><br><br>
+        </div>
+    </div>
+</div>
+
+</div>

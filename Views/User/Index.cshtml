@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Dashboard
+            <small>Control panel</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading bg-aqua">
+                        <div class="row ">
+                            <div class="col-xs-3">
+                                <i class="fa fa-car fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">8</div>
+                                <div>Total Reservations!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="@Url.Action("ViewReservation","User")">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Reservation</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-success">
+                    <div class="panel-heading bg-green">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-ticket fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="@Url.Action("ViewHistory","User")">
+                        <div class="panel-footer">
+                            <span class="pull-left">View History</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-warning">
+                    <div class="panel-heading bg-yellow">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-shopping-cart fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge"></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="@Url.Action("ViewSchedules","User")">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Schedules</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            </aside><!-- /.control-sidebar -->
+            <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+            <div class="control-sidebar-bg"></div>
+        </div><!-- ./wrapper -->
+

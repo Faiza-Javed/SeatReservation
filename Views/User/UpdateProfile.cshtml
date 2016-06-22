@@ -1,0 +1,88 @@
+﻿@model EAD_Project.Models.Customer
+
+@{
+    ViewBag.Title = "AddCustomer";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <br>
+        <br>
+        <h1>
+            Update Profile
+            <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Dashboard</li>
+            <li>Profile Settings</li>
+            <li class="active">Update Profile</li>
+        </ol>
+    </section>
+
+    <section class="content">
+
+        <form method="post" action="~/User/ProfileUpdated">
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="dob">Name</label>
+                    <div class="col-md-9">
+                        <input type="text" path="dob" name="Fname" id="dob" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="dob">CNIC</label>
+                    <div class="col-md-9">
+                        <input type="number" path="dob" id="dob" name="Lname" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="dob">Email</label>
+                    <div class="col-md-9">
+                        <input type="text" path="dob" id="dob" name="Email" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="dob">Contact</label>
+                    <div class="col-md-9">
+                        <input type="number" path="dob" id="dob" name="Mobile" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="dob">Address</label>
+                    <div class="col-md-9">
+                        <input type="text" path="dob" id="dob" name="Address" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+
+            <div align="center" class="row">
+                <div class="form-actions floatRight col-md-8">
+                    <input type="reset" value="Reset" class="btn btn-primary btn-sm">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+
+
+
+      </aside><!-- /.control-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+     immediately after the control sidebar -->
+<div class="control-sidebar-bg"></div>
+    </div><!-- ./wrapper -->

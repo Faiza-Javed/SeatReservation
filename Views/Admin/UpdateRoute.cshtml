@@ -1,0 +1,87 @@
+﻿@model EAD_Project.Models.RouteDepartureModel
+@{
+    ViewBag.Title = "UpdateRoute";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <br>
+        <br>
+        <h1>
+            Add New Route
+            <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Dashboard</li>
+            <li>Manage Routes</li>
+            <li class="active">Update Route</li>
+        </ol>
+    </section>
+
+    <section class="content">
+
+        <form method="post" action="~/Admin/RouteEdit">
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="country">Departure</label>
+                    <div class="col-md-9">
+                        <input type="hidden" value=@Model.route.Id name="Id"/>
+                        <select path="country" name="D_Id" id="country" class="form-control input-sm">
+                            <option value="">@Model.route.Departure</option>
+                            @foreach (var s in Model.departure_city)
+                            {
+
+
+                                <option value=@s.Id>@s.Departure</option>
+                            }
+
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="country">Arrival</label>
+                    <div class="col-md-9">
+                        <select path="country" name="Arrival" id="country" class="form-control input-sm">
+                            <option value="">@Model.route.Arrival</option>
+
+                            @foreach (var s in Model.departure_city)
+                            {
+                                <option value=@s.Departure>@s.Departure</option>
+                            }
+
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+
+            <div align="center" class="row">
+                <div class="form-actions floatRight col-md-8">
+                    <input type="reset" value="Reset" class="btn btn-primary btn-sm">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+
+
+
+      </aside><!-- /.control-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+     immediately after the control sidebar -->
+<div class="control-sidebar-bg"></div>
+    </div><!-- ./wrapper -->
+
+

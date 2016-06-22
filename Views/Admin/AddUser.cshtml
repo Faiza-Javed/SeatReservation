@@ -1,0 +1,83 @@
+﻿@model EAD_Project.Models.Admin
+
+@{
+    ViewBag.Title = "AddUser";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <br>
+        <br>
+        <h1>
+            Add New User
+            <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Dashboard</li>
+            <li>Manage Users</li>
+            <li class="active">Add User</li>
+        </ol>
+    </section>
+
+    <section class="content">
+
+        <form method="post" action="~/Admin/UserAdded">
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="dob">Name</label>
+                    <div class="col-md-9">
+                        <input type="text" path="dob" name="FName" id="dob" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+           
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="dob">Username</label>
+                    <div class="col-md-9">
+                        <input type="text" path="dob" name="Uname" id="dob" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="dob">Password</label>
+                    <div class="col-md-9">
+                        <input type="password" path="dob" name="Pass" id="dob" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="dob">Retype Password</label>
+                    <div class="col-md-9">
+                        <input type="password" path="dob" name="Pass" id="dob" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+
+            <div align="center" class="row">
+                <div class="form-actions floatRight col-md-8">
+                    <input type="reset" value="Reset" class="btn btn-primary btn-sm">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+
+
+
+      </aside><!-- /.control-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+     immediately after the control sidebar -->
+<div class="control-sidebar-bg"></div>
+    </div><!-- ./wrapper -->
+

@@ -1,0 +1,56 @@
+﻿@model EAD_Project.Models.Departure_City
+
+@{
+    ViewBag.Title = "AddCity";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <br>
+        <br>
+        <h1>
+            Add New City
+            <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Dashboard</li>
+            <li>Manage Cities</li>
+            <li class="active">Add City</li>
+        </ol>
+    </section>
+
+    <section class="content">
+
+        <form method="post" action="~/Admin/CityAdded">
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="dob">City Name</label>
+                    <div class="col-md-9">
+                        <input type="text" path="dob" name="Departure" id="dob" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+
+            <div align="center" class="row">
+                <div class="form-actions floatRight col-md-8">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+
+
+
+      </aside><!-- /.control-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+     immediately after the control sidebar -->
+<div class="control-sidebar-bg"></div>
+    </div><!-- ./wrapper -->
+

@@ -1,0 +1,194 @@
+﻿@model EAD_Project.Models.UserAdminReservationModel
+
+@{
+    ViewBag.Title = "Reservations";
+}
+
+<div class="about-main">
+    <div class="container">
+        <h3 style="text-align: center;">Available Buses For You</h3>
+        <div class="main-about">
+
+            <div class="row register">
+
+
+                <div style="margin-bottom:60px;"></div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="dataTable_wrapper">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Departure</th>
+                                                <th>Arrival</th>
+                                                <th>Bus Type</th>
+                                                <th>Fare</th>
+                                                <th>Departure Time</th>
+                                                <th>Arrival Time</th>
+                                                <th>Stops</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var s in Model.rout) { 
+                                            <tr>
+                                                <td>@s.Id</td>
+                                                <td>@s.Departure</td>
+                                                <td>@s.Arrival</td>
+                                                <td>@s.bus_type</td>
+                                                <td>Rs.@s.fare</td>
+                                                <td>@s.Departure_Time</td>
+                                                <td>@s.Arrival_Time</td>
+                                                <td>@s.stops</td>
+                                                <td>@s.status</td>
+                                                <td>
+
+                                                    <form action="@Url.Action("Seats", "Home", new { id1 = @s.Id, departure = @s.Departure, arrival = @s.Arrival, date2 = @ViewBag.date, departure_time = @s.Departure_Time, arrival_time = @s.Arrival_Time })" method="post">
+                                                        <input type="hidden" name="Id" value="@s.Id">
+                                                        <input type="hidden" name="D_Id" value="@s.D_id">
+                                                        <input type="hidden" name="Departure" value="@s.Departure">
+                                                        <input type="hidden" name="Arrival" value="@s.Arrival">
+                                                        <input type="hidden" name="Departure_Time" value="@s.Departure_Time">
+                                                        <input type="hidden" name="Arrival_Time" value="@s.Arrival_Time">
+                                                        <input type="hidden" name="Date2" value=@Request["Date1"]>
+                                                        <input type="submit" value="Login To Reserve Seats" class="btn" style="Background: #ffd400;" />
+                                                    </form>
+                                                    <!---<a id="modal_trigger1" href="#modal1" >Login To Reserve Seats</a>-->
+
+                                                </td>
+                                            </tr>
+                                            }
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+
+                        <div id="modal1" class="popupContainer" style="display:none;">
+                            <header class="popupHeader">
+                                <span class="header_title">Login</span>
+                                <span class="modal_close"><i class="fa fa-times"></i></span>
+                            </header>
+
+                            <section class="popupBody">
+
+                                <!-- Username & Password Login form -->
+                                <div class="user_login1">
+                                    <form>
+                                        <label>Email / Username</label>
+                                        <input type="text" />
+                                        <br />
+
+                                        <label>Password</label>
+                                        <input type="password" />
+                                        <br />
+
+                                        <div class="action_btns">
+                                            <div class="one_half"><a href="#" class="btn back_btn">SignUp</a></div>
+                                            <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
+                                        </div>
+                                    </form>
+
+                                    <a href="#" class="forgot_password">Forgot password?</a>
+                                </div>
+
+                                <!-- Register Form -->
+                                <div class="user_register1">
+                                    <form>
+                                        <label>Full Name</label>
+                                        <input type="text" />
+                                        <br />
+
+                                        <label>Email Address</label>
+                                        <input type="email" />
+                                        <br />
+
+                                        <label>Password</label>
+                                        <input type="password" />
+                                        <br />
+
+                                        <div class="action_btns">
+                                            <div class="one_half"><a href="#" class="btn back_btn1">Login</a></div>
+                                            <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+                        $("#modal_trigger1").leanModal({ top: 200, overlay: 0.6, closeButton: ".modal_close" });
+
+                        $(function () {
+                            // Calling Login Form
+                            $("#modal_trigger1").click(function () {
+                                $(".user_register1").hide();
+                                $(".user_login1").show();
+                                return false;
+                            });
+
+                            // Calling Register Form
+                            $("modal_trigger1").click(function () {
+                                $(".user_login1").hide();
+                                $(".user_register1").show();
+                                $(".header_title").text('Register');
+                                return false;
+                            });
+
+                            $(".back_btn1").click(function () {
+                                $(".user_login1").show();
+                                $(".user_register1").hide();
+                                $(".header_title").text('Login');
+                                return false;
+                            });
+
+                            $(".back_btn").click(function () {
+                                $(".user_login1").hide();
+                                $(".user_register1").show();
+                                $(".header_title").text('Register');
+                                return false;
+                            });
+
+
+                        })
+                    </script>
+
+
+
+                    </div>
+
+                    
+
+                                
+
+                            
+                    <!-- /.col-lg-12 -->
+                </div>
+
+
+               
+
+
+
+
+            </div>
+        </div>
+
+
+        
+
+    </div>
+</div>
+
+

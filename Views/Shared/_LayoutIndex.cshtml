@@ -1,0 +1,413 @@
+﻿@model EAD_Project.Models.UserAdminReservationModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!--jQuery (necessary for Bootstrap's JavaScript plugins)-->
+    <!-- Custom Theme files -->
+    <link href="~/Content/style.css" rel='stylesheet' type='text/css' />
+    <!--Custom Theme files-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="~/Scripts/jquery-1.8.3.min.js"></script>
+    <script src="~/Scripts/modernizr.custom.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.leanModal.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="~/Content/style1.css" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+
+    <!--start-smoth-scrolling-->
+    <script type="text/javascript" src="~/Scripts/move-top.js"></script>
+    <script type="text/javascript" src="~/Scripts/easing.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!--start-smoth-scrolling-->
+
+
+
+    <!--webfonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!--webfonts-->	
+
+    <title>Bus Seat Reservation</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body style="background: lightblue ">
+    <div class="header-section" style="background-image: url(/images/bg.jpg)">
+        <div class="header-top"></div>
+        <div class="container">
+            <!--logo-->
+            <div class="logo">
+                <a href="index.html"><img src="/images/logo.png" alt=""></a>
+            </div>
+
+            <!--top-nav-->
+            <div class="sub-header">
+                <div class="top-nav">
+                    <span class="menu"> </span>
+                    <ul>
+                        <li class="active">@Html.ActionLink("Index", "Index", "Home")</li>
+                        <li><a id="modal_trigger" href="#modal">Reservation</a></li>
+                        <li>@Html.ActionLink("Schedules", "Schedules", "Home")</li>
+                        <li>@Html.ActionLink("Fares", "Fares", "Home")</li>
+                        <li>@Html.ActionLink("Services", "Services", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li><a id="modal_trigger1" href="#modal1">Login</a></li>
+                        <li><a id="modal_trigger2" href="#modal2">Admin</a></li>
+                       
+                    </ul>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+            <!-- script-for-menu -->
+            <script>
+                $(document).ready(function () {
+                    $("span.menu").click(function () {
+                        $(".top-nav ul").slideToggle(200);
+                    });
+                });
+            </script>
+            <div class="clearfix"> </div>
+            <!--//End-slider-script-->
+        </div>
+    </div>
+
+    <!--/header-->
+
+    <div id="modal" class="popupContainer" style="display:none;">
+        <header class="popupHeader">
+            <span class="header_title">Reservation</span>
+            <span class="modal_close"><i class="fa fa-times"></i></span>
+        </header>
+
+        <section class="popupBody">
+
+            <!-- Username & Password Login form -->
+            <div class="user_login">
+                <form method="post" action="~/Home/Reservations">
+                    <!--<label>Departure</label>-->
+                    @Html.LabelFor(model => model.route.Departure)
+                    <select   name="Departure" class="dep" required="required" id="departure1">
+                        <option value="-1">Select Departure</option>
+                        @foreach (var s in Model.departure_city)
+                        {
+                            <option value="@s.Id">@s.Departure</option>   
+                        }
+                    </select>
+                    <br />
+
+                    <!--<label>Arrival</label>-->
+                    @Html.LabelFor(model => model.route.Arrival)
+                    <div>
+                        <select name="Arrival" id="arrivals">
+                            <option value="-1">Select Arrival</option>
+                            </select>
+                        </div>
+                    <br />
+
+                    <!--<label>Date</label>-->
+                    @Html.Label("Date")
+                    <input type="Date" name="Date1" value="" id="date1" required="required" />
+                    <br />
+
+                    <div class="action_btns">
+                        <div class="one_half"><a href="#" class="btn back_btn"> Reset</a></div>
+                        <div class="one_half last"><input type="submit" value="Search" class="btn btn-red" /></div>
+                    </div>
+                </form>
+
+            </div>
+
+
+        </section>
+    </div>
+
+    
+
+
+    <script type="text/javascript">
+        $("#modal_trigger").leanModal({ top: 200, overlay: 0.6, closeButton: ".modal_close" });
+
+        $(function () {
+            // Calling Login Form
+            $("#modal_trigger").click(function () {
+                $(".user_login").show();
+                return false;
+            });
+
+        })
+    </script>
+
+
+    <div id="modal2" class="popupContainer" style="display:none;">
+        <header class="popupHeader">
+            <span class="header_title">Admin</span>
+            <span class="modal_close"><i class="fa fa-times"></i></span>
+        </header>
+
+        <section class="popupBody">
+
+            <!-- Username & Password Login form -->
+            <div class="user_login2">
+                <form method="post" action="~/Admin/CheckAdmin">
+                    <!---<label>Email / Username</label>-->
+                    <!---<input type="text" />-->
+                    @Html.Label("Username")
+                    @Html.TextBoxFor(model => model.admin.Uname)
+                    @Html.ValidationMessageFor(model => model.admin.Uname)
+                    <br />
+
+                    <!---<label>Password</label>-->
+                    <!--<input type="password" />-->
+                    @Html.Label("Password")
+                    @Html.PasswordFor(model => model.admin.Pass)
+                    @Html.ValidationMessageFor(model => model.admin.Pass)
+                    <br />
+
+                    <div class="action_btns">
+                        <div class="one_half"><a href="#" class="btn back_btn"> Reset</a></div>
+                        <div class="one_half last"><input type="submit" value="Login" class="btn btn_red"/></div>
+                    </div>
+                </form>
+
+            </div>
+
+
+        </section>
+    </div>
+
+    <script type="text/javascript">
+        $("#modal_trigger2").leanModal({ top: 200, overlay: 0.6, closeButton: ".modal_close" });
+
+        $(function () {
+            // Calling Login Form
+            $("#modal_trigger2").click(function () {
+                $(".user_login2").show();
+                return false;
+            });
+
+        })
+    </script>
+
+
+    <div id="modal1" class="popupContainer" style="display:none;">
+        <header class="popupHeader">
+            <span class="header_title">Login</span>
+            <span class="modal_close"><i class="fa fa-times"></i></span>
+        </header>
+
+        <section class="popupBody">
+
+            <!-- Username & Password Login form -->
+            <div class="user_login1">
+                <form method="post" action="~/Home/UserLogin">
+                    <!---<label>Email / Username</label>-->
+                    <!---<input type="text" />-->
+                    @Html.Label("Email / Username")
+                    @Html.TextBoxFor(model => model.user.Username, null, new { required = "required" })
+                    <br />
+
+                    <!---<label>Password</label>-->
+                    <!--<input type="password" />-->
+                    @Html.Label("Password")
+                    @Html.TextBoxFor(model => model.user.Password, null, new { required = "required", type = "password" })
+                    <br />
+
+                    <div class="action_btns">
+                        <div class="one_half"><a href="#" class="btn back_btn">SignUp</a></div>
+                        <div class="one_half last"><input type="submit" value="Login" class="btn btn_red" /></div>
+                    </div>
+                </form>
+
+                <a href="#" class="forgot_password">Forgot password?</a>
+            </div>
+
+            <!-- Register Form -->
+            <div class="user_register1">
+                <form method="post" action="~/Home/Signup">
+
+                    <!---<label>Full Name</label>-->
+                    <!---<input type="text" name="Name" value="" />-->
+                    @Html.Label("Name")
+                    @Html.TextBoxFor(model => model.user.Name,null,  new { required = "required"})
+                    <br />
+
+                    <!--<label>Email / Username</label>-->
+                    <!---<input type="email" name="Username" value="" />-->
+                    @Html.Label("Email / Username")
+                    @Html.TextBoxFor(model => model.user.Username, null, new { required = "required"})
+                    <br />
+
+                    <!--<label>Password</label>-->
+                    <!---<input type="password" name="Password" value="" />-->
+                    @Html.Label("Password")
+                    @Html.TextBoxFor(model => model.user.Password, null, new { required = "required", type = "password" })
+                    <br />
+
+                    <div class="action_btns">
+                        <div class="one_half"><a href="#" class="btn back_btn1">Login</a></div>
+                        <div class="one_half last"><input type="submit" value="SignUp" class="btn btn_red"></div>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+    </div>
+
+
+    <script type="text/javascript">
+        $("#modal_trigger1").leanModal({ top: 200, overlay: 0.6, closeButton: ".modal_close" });
+
+        $(function () {
+            // Calling Login Form
+            $("#modal_trigger1").click(function () {
+                $(".user_register1").hide();
+                $(".user_login1").show();
+                return false;
+            });
+
+            // Calling Register Form
+            $("modal_trigger1").click(function () {
+                $(".user_login1").hide();
+                $(".user_register1").show();
+                $(".header_title").text('Register');
+                return false;
+            });
+
+            $(".back_btn1").click(function () {
+                $(".user_login1").show();
+                $(".user_register1").hide();
+                $(".header_title").text('Login');
+                return false;
+            });
+
+            $(".back_btn").click(function () {
+                $(".user_login1").hide();
+                $(".user_register1").show();
+                $(".header_title").text('Register');
+                return false;
+            });
+
+
+        })
+    </script>
+
+    <script src="~/Scripts/jquery1.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $(".dep").change(function () {
+
+            var sid = $("#departure1").val();
+            alert(sid);
+            $.ajax({
+                
+                type: "GET",
+                url: '@Url.Action("SelectMenu", "Home")',
+                data: { d1: sid},
+                    success: function (data) {
+                        $("#arrivals").html(data);
+                    }
+                });
+                
+
+            }
+
+           
+    )
+    });
+
+    </script> 
+    
+        @RenderBody()
+    </div>
+    <div class="footer-section">
+        <div class="container">
+            <div class="footer-grids">
+                <div class="col-md-3 footer-grid bottom-nav">
+                    <h3>Information </h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">New Services</a></li>
+                        <li><a href="404.html">Recent Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="mail.html">Mail Us</a></li>
+                        
+                    </ul>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="col-md-3 footer-grid category">
+                    <h3>Categories </h3>
+                    <ul>
+                        <li><a href="#">Proin at tellus quis</a> </li>
+                        <li><a href="#">Felis tincidun</a>  </li>
+                        <li><a href="#">Vestibulum</a> </li>
+                        <li><a href="#">Sets</a> </li>
+                        <li><a href="#">Praesent sit</a> </li>
+                        <li><a href="#">Amet nulla molestie</a> </li>   
+                    </ul>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="col-md-3 footer-grid brands">
+                    <h3>Brands </h3>
+                    <ul>
+                        <li><a href="#">Pellentesque</a>  </li>
+                        <li><a href="#">Lorem ipsum dolor </a> </li>
+                        <li><a href="#">Vestibulum pharetra</a> </li>
+                        <li><a href="#">Donec eros dolor</a></li>  
+                    </ul>
+                    <div class="clearfix">  </div>
+                </div>
+                <div class="col-md-3 footer-grid contact">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="#">Tel:1(234) 567-8901</a></li>
+                        <li><a href="#">Tel:1(234) 567-8936</a></li>
+                        
+                    </ul>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--//End-foote-->
+    <div class="copy-right-section">
+        <div class="container">
+            <div class="col-md-6 copy-right">
+                <p>Design by &nbsp;<a href="#">Faiza Javed</a></p>
+            </div>
+            <div class="col-md-6 social-icons">
+                <ul class="soc_icons2">
+                    <li><a href="#"><i class="icon_4"></i></a></li>
+                    <li><a href="#"><i class="icon_5"></i></a></li>
+                    <li><a href="#"><i class="icon_6"></i></a></li>
+                </ul>
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
+
+

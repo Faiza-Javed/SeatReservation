@@ -1,0 +1,11 @@
+﻿@model EAD_Project.Models.UserAdminReservationModel
+@{
+    ViewBag.Title = "SelectMenu";
+    Layout = null;
+}
+
+    @foreach (var u in Model.arr)
+    {
+        <option value="@u"> @u </option>
+    }
+

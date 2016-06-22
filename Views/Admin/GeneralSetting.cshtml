@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "GeneralSetting";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <br>
+        <br>
+        <h1>
+            Add New Schedule
+            <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li>Website Management</li>
+            <li>Settings</li>
+            <li class="active">General Settings</li>
+        </ol>
+    </section>
+
+    <section class="content">
+
+        <form method="post" action="~/Admin/Index">
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <!--div class="panel-heading">
+                          <div class="panel-btns">
+                            <a href="#" class="panel-close">×</a>
+                            <a href="#" class="minimize">−</a>
+                          </div>
+                        </div-->
+                        <div style="display: block;" class="panel-body panel-body-nopadding">
+
+                            <form action="~/Admin/GeneralSetting" method="post" class="form-horizontal form-bordered">
+
+
+
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">WEBSITE TITLE</label>
+                                    <div class="col-sm-6"><input name="sitename" value="Bus Ticket Reservation System" class="form-control" type="text"></div>
+                                </div>
+
+
+
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Mobile</label>
+                                    <div class="col-sm-6"><input name="mobile" value="01912751111" class="form-control" type="text"></div>
+                                </div>
+
+
+
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Email</label>
+                                    <div class="col-sm-6"><input name="email" value="admin@bus_res.net" class="form-control" type="text"></div>
+                                </div>
+
+
+
+
+                        </div><!-- panel-body -->
+
+                        <div style="display: block;" class="panel-footer">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <button class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+        </form>
+    </section>
+</div>
+
+
+
+      </aside><!-- /.control-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+     immediately after the control sidebar -->
+<div class="control-sidebar-bg"></div>
+    </div><!-- ./wrapper -->
+

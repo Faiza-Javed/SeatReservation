@@ -1,0 +1,106 @@
+﻿@model EAD_Project.Models.Customer
+@{
+    ViewBag.Title = "Form";
+}
+
+<script>alert(@ViewBag.arr)</script>
+
+<div class="about-main">
+    <div class="container">
+        <div class="spacer">
+        <center><h3>Confirm Your Seats</h3></center>
+        <div class="main-about">
+
+            <div class="row register">
+                <form method="post" action="@Url.Action("Print","Home") ">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="col-lg-12">
+                                <div class="col-lg-6 col-lg-offset-3 col-sm-6 col-sm-offset-3 col-xs-12 ">
+                                    Bus Id: @Request["Id"]<br />
+                                    Route: @Request["Departure"] - @Request["Arrival"]<br />
+                                    Date: @Request["Date2"]<br />
+                                    Time: @Request["Departure_Time"] - @Request["Arrival_Time"] <br />
+                                    Total Seats: 40 <br />
+                                    Selected Seats: @Request.Form["seats[]"]<br />
+                                    Total Cost: @ViewBag.payable<br />
+
+
+                                    <input type="hidden" name="Id" value="@Request["Id"]" />
+                                    <input type="hidden" name="D_Id" value="@Request["D_Id"]">
+                                    <input type="hidden" name="Fare" value="@ViewBag.fare">
+                                    <input type="hidden" name="Departure" value="@Request["Departure"]" />
+                                    <input type="hidden" name="Arrival" value="@Request["Arrival"]" />
+                                    <input type="hidden" name="Departure_Time" value="@Request["Departure_Time"]" />
+                                    <input type="hidden" name="Arrival_Time" value="@Request["Arrival_Time"]" />
+                                    <input type="hidden" name="Date2" value=@Request["Date2"] />
+                                    <input type="hidden" name="Seats" value=@Request.Form["seats[]"] />
+                                    <input type="hidden" name="Payable" value=@ViewBag.payable />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+</div>
+            <div class="row">
+                <br />
+                <br />
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="dob">Passenger's Name</label>
+                    <div class="col-md-9">
+                        <input type="text" name="Fname" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="dob">Passenger's CNIC</label>
+                    <div class="col-md-9">
+                        <input type="number" name="Lname" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="dob">Passenger's Email</label>
+                    <div class="col-md-9">
+                        <input type="text" name="Email" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="dob">Passenger's Mobile</label>
+                    <div class="col-md-9">
+                        <input type="text"  name="Mobile" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label class="col-md-3 control-lable" for="dob">Passenger's Address</label>
+                    <div class="col-md-9">
+                        <input type="text"  name="Address" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div align="center" class="row">
+                <div class="form-actions floatRight col-md-8">
+                    <input type="submit" class="btn btn-sm" style="background: #0094ff;" value="Reset" />
+                    <input type="submit" value="Confirm" class="btn btn-sm" style="background: #0094ff;"/>
+</div>
+            </div>
+                                    
+                               
+                        
+</form>
+                <!-- /.col-lg-12 -->
+            </div>
+        </div>
+    </div>
+</div></div></div></div>
+</div>
+</div>
+</div>
+
+
+

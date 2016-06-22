@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "CancelReservation";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <br>
+        <br>
+        <h1>
+            Cancel Reservation
+            <small></small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li> Reservations</li>
+            <li class="active">Cancel Reservation</li>
+        </ol>
+    </section>
+
+    <section class="content">
+
+        <form method="post">
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <!--div class="panel-heading">
+                          <div class="panel-btns">
+                            <a href="#" class="panel-close">×</a>
+                            <a href="#" class="minimize">−</a>
+                          </div>
+                        </div-->
+                        <div style="display: block;" class="panel-body panel-body-nopadding">
+
+                            <form action="~/User/Cancel" method="post" class="form-horizontal form-bordered">
+
+
+
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Name</label>
+                                    <div class="col-sm-6"><input name="name" class="form-control" type="text"></div>
+                                </div>
+
+
+
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">CNIC</label>
+                                    <div class="col-sm-6"><input name="cnic" class="form-control" type="text"></div>
+                                </div>
+
+
+
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Booking Id</label>
+                                    <div class="col-sm-6"><input name="booking" class="form-control" type="text"></div>
+                                </div>
+
+
+
+
+                        </div><!-- panel-body -->
+
+                        <div style="display: block;" class="panel-footer">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <button class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+        </form>
+    </section>
+</div>
+

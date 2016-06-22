@@ -1,0 +1,104 @@
+﻿@model EAD_Project.Models.UserAdminReservationModel
+
+
+@{
+    ViewBag.Title = "Schedules";
+}
+
+<div class="featured-section">
+    <div class="container">
+        <div class="col-md-4">
+            <br />
+            <h2>Popular Routes</h2>
+            <ul class="list_1">
+                <li><a href="#">Lahore To Karachi</a></li>
+                <li><a href="#">Karachi To Islamabad</a></li>
+                <li><a href="#">Rawalpindi To Abbotabad</a></li>
+                <li><a href="#">Lahore To Balakot</a></li>
+                <li><a href="#">Multan To Faisalabad</a></li>
+                <li><a href="#">Islamabad To Peshawar</a></li>
+                <li><a href="#">Lahore To Naran</a></li>
+                <li><a href="#">Karachi To Multan</a></li>
+                <li><a href="#">Lahore To Karachi</a></li>
+                <li><a href="#">Karachi To Islamabad</a></li>
+                <li><a href="#">Rawalpindi To Abbotabad</a></li>
+                <li><a href="#">Lahore To Balakot</a></li>
+                <li><a href="#">Multan To Faisalabad</a></li>
+                <li><a href="#">Islamabad To Peshawar</a></li>
+                <li><a href="#">Lahore To Naran</a></li>
+                <li><a href="#">Karachi To Multan</a></li>
+            </ul>
+        </div>
+        <div class="col-md-8 right">
+            <br />
+            <h2>Schedules</h2>
+            <form method="post" action="~/Home/Search">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="col-md-3 control-lable" for="country">Departure</label>
+                        <div id="departure" class="col-md-9">
+                            <select id="depart" name="departure" class="form-control input-sm" required="required">
+                               
+                                <option value=" ">Select Departure</option>
+
+                                @foreach (var s in Model.departure_city)
+                                {
+                                    <option value=@s.Id>@s.Departure</option>
+                                }
+
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="col-md-3 control-lable" for="country">Arrival</label>
+                        <div class="col-md-9">
+                            <select id="country" class="form-control input-sm arrival" required="required">
+                                <option value="">Select Arrival</option>
+                                @foreach (var s in Model.departure_city)
+                                    {
+                                        <option value=@s.Id>@s.Departure</option>
+                                    }
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="col-md-3 control-lable" for="dob">Date</label>
+                        <div class="col-md-9">
+                            <input type="Date" id="dob" class="form-control input-sm" required="required" />
+                        </div>
+                    </div>
+                </div>
+                <div align="center" class="row">
+                    <div class="form-actions floatRight">
+                        <input type="reset" value="Reset" class="btn btn-primary btn-sm">
+                        <input type="submit" id="loadData" value="Search" class="btn btn-primary btn-sm">
+                    </div>
+                </div>
+                
+            </form>
+            <br /><br /><br />
+            <div class="row" id="search">
+     
+            </div>
+        </div>
+        </div>
+
+    </div>
+</div>
+
+
+</div>
+
+
+
+
+<script language="javascript">
+    var today = new Date();
+    document.getElementById('time').innerHTML = today;
+</script>

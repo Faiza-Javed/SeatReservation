@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<script>
+    if (ViewBag.success != null)
+    {
+        alert(@ViewBag.success);
+    }
+</script>
+
+<div class="featured-section" >
+    <div class="container">
+        <br>
+        <h2>Top Destinations</h2>
+        <div class="featured-main">
+            <div class=" col-md-4 feature-text">
+                <img src="~/images/m1.png" alt="">
+                <h3>Karachi</h3>
+                <p>
+                    Etiam feugiat lectus nisl, in euismod l
+                    ectus viverra et. Sed et scelerisqu
+                    e felis. Integer vel volutpat massa. Do
+                    nec id justo nisl. Vivamus malesuada,
+                    dolor a eleifend sagittis, neque arcu
+                    semper mi, eu finibus ,
+                </p>
+                <div class="wecome-button">
+                    <a class="button rotate2" href="single.html">Read More<span> </span></a>
+                </div>
+            </div>
+            <div class=" col-md-4 feature-text">
+                <img src="~/images/f2.png" alt="">
+                <h3>
+                    Aenean aliquam pretium felis, eu
+                    varius sapien. Mauris porttitor .
+                </h3>
+                <p>
+                    Etiam feugiat lectus nisl, in euismod l
+                    ectus viverra et. Sed et scelerisqu
+                    e felis. Integer vel volutpat massa. Do
+                    nec id justo nisl. Vivamus malesuada,
+                    dolor a eleifend sagittis, neque arcu
+                    semper mi, eu finibus ,
+                </p>
+                <div class="wecome-button">
+                    <a class="button rotate2" href="single.html">Read More<span> </span></a>
+                </div>
+            </div>
+            <div class=" col-md-4 feature-text">
+                <img src="~/images/f2.png" alt="">
+                <h3>
+                    Aenean aliquam pretium felis, eu
+                    varius sapien. Mauris porttitor .
+                </h3>
+                <p>
+                    Etiam feugiat lectus nisl, in euismod l
+                    ectus viverra et. Sed et scelerisqu
+                    e felis. Integer vel volutpat massa. Do
+                    nec id justo nisl. Vivamus malesuada,
+                    dolor a eleifend sagittis, neque arcu
+                    semper mi, eu finibus ,
+                </p>
+                <div class="wecome-button">
+                    <a class="button rotate2" href="single.html">Read More<span> </span></a>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+					
+<!--/start-text-slider-->
+<div class="testimonials" id="testimonials" style="background-image: url(/images/slide.png)">
+    <div class=" wmuslider example1">
+        <div class="container-flueid">
+            <article style="position: absolute; width:64%; opacity: 0;">
+
+                <div class=" cont span_2_of_3 client-main">
+                    <div class="slide-text">
+                        <p>Best Facilities </p>
+                        <span> </span>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </article>
+            <article style="position: absolute; width:64%; opacity: 0;">
+                <div class=" cont span_2_of_3  client-main">
+                    <div class="slide-text">
+                        <p>Nice And Comfortable Services </p>
+                        <span> </span>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </article>
+            <article style="position: absolute; width:64%; opacity: 0;">
+                <div class="cont span_2_of_3  client-main">
+                    <div class="slide-text">
+                        <p>Nice Experience</p>
+                        <span> </span>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </article>
+
+            <script src="~/Scripts/jquery.wmuSlider.js"></script>
+            <script>
+                $('.example1').wmuSlider();
+            </script>
+        </div>
+    </div>
+
+</div>
